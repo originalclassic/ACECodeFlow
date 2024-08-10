@@ -1,18 +1,21 @@
 #pragma once
 
-namespace ACE {
+#include "ScriptManager.h"
+#include "ScriptEngine.h"
 
-    class ACECodeFlow {
-    public:
-        ACECodeFlow();
-        ~ACECodeFlow();
+// ACECodeFlow module entry point
+class ACECodeFlow {
+public:
+    ACECodeFlow();
+    ~ACECodeFlow();
 
-        void Initialize();
-        void ExecuteScript(const char* script);
-        void Shutdown();
+    // Initialize the scripting system
+    void Initialize();
 
-    private:
-        // Internal data and methods
-    };
+    // Shutdown the scripting system
+    void Shutdown();
 
-} // namespace ACE
+private:
+    ScriptManager* m_ScriptManager;
+    ScriptEngine* m_ScriptEngine;
+};
